@@ -3,14 +3,14 @@
 
 void SortArr(int arr[], int len) {
     int i, j, index;
-    for (i = 0; i < N - 1; i++) {
+    for (i = 0; i < len - 1; i++) {
         index = i;
-        for (j = i + 1; j < N; j++) {
+        for (j = i + 1; j < len; j++) {
             if (arr[j] < arr[index]) {
                 index = j;
             }
         }
-        swap(&arr[i]. & arr[index]);
+        swap(&arr[i], & arr[index]);
     }
 }
 

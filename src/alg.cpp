@@ -1,6 +1,11 @@
 // Copyright 2021 NNTU-CS
 #include <iostream>
 
+void swap(int *a, int *b) {
+    a = b;
+    b = a;
+}
+
 void SortArr(int arr[], int len) {
     int i, j, index;
     for (i = 0; i < len - 1; i++) {

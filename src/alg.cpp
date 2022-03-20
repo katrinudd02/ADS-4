@@ -22,7 +22,7 @@ void SortArr(int arr[], int len) {
 int countPairs1(int* arr, int len, int value) {
     int count = 0;
     bool flag = false;
-    SortArr(arr[], len);
+    //SortArr(arr[], len);
     for (int i = 0; i < len-1; i++) {
         for (int j = 1; j < len; j++) {
             if (arr[i] + arr[j] == value) {
@@ -40,7 +40,7 @@ int countPairs1(int* arr, int len, int value) {
 
 int countPairs2(int* arr, int len, int value) {
     int count = 0;
-    SortArr(arr[], len);
+    //SortArr(arr[], len);
     for (int i = 0; i < len - 1; i++) {
         for (int j = len - 1; j > i; j--) {
             if (arr[i] + arr[j] == value) {
@@ -78,7 +78,7 @@ int countPairs3(int* arr, int len, int value) {
     //SortArr(int arr[], int len);
     for (int i = 0; i < len; i++) {
         if (arr[i] <= value - arr[i]) {
-            count += cbinsearch(arr, size, value);
+            count += cbinsearch(arr, len, value);
         }
     }
     return count;

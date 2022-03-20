@@ -56,7 +56,7 @@ int cbinsearch(int* arr, int left1, int len, int ch) {
             while (arr[++el1] == ch) {
                 count += 1;
             }
-            while (arr[--el2]- == ch && el2 > left1) {
+            while (arr[--el2] == ch && el2 > left1) {
                 count += 1;
             }
             break;

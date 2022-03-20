@@ -70,7 +70,7 @@ int cbinsearch(int* arr, int size, int value) {
 
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
-    SortArr(int arr[], int len);
+    //SortArr(int arr[], int len);
     for (int i = 0; i < len; i++) {
         if (arr[i] <= value - arr[i]) {
             count += cbinsearch(arr, size, value);

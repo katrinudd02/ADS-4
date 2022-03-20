@@ -77,7 +77,7 @@ int cbinsearch(int* arr, int left1, int len, int ch) {
 
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
-    SortArr(arr, len);
+    //SortArr(arr, len);
     int ch;
     for (int left1 = 0; left1 < len-1; ++left1) {
         ch = value - arr[left1];

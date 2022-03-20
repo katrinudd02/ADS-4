@@ -17,21 +17,14 @@ void SortArr(int arr[], int len) {
 
 int countPairs1(int* arr, int len, int value) {
     int count = 0;
-    bool flag = false;
-    //SortArr(arr, N);
     for (int i = 0; i < len-1; i++) {
         for (int j = 1; j < len; j++) {
             if (arr[i] + arr[j] == value) {
-                flag = true;
                 count += 1;
             }
         }
     }
-    if (flag == true) {
-        return count;
-    } else {
-        return 0;
-    }
+    return count;
 }
 
 int countPairs2(int* arr, int len, int value) {

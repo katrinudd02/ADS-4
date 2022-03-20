@@ -42,28 +42,28 @@ int countPairs2(int* arr, int len, int value) {
     return count;
 }
 
-int cbinsearch(int* arr, int left1, int len, int ch) {
+int cbinsearch(int* arr, int left, int len, int value) {
     int count = 0;
-    int left2 = left1;
+    int x = left;
+    int y = len;
     int middle = 0;
-    int right = len;
-    while (left2 < right-1) {
-        middle = left2 + (left2 - right) / 2;
-        if (arr[middle] == ch && middle != left1) {
+    while (x < y) {
+        middle = x + (y - x) / 2;
+        if (arr[middle] == value && middle != left) {
             count++;
             int el1 = middle;
             int el2 = middle;
-            while (arr[++el1] == ch) {
+            while (arr[++el1] == value) {
                 count += 1;
             }
-            while (arr[--el2] == ch && el2 > left1) {
+            while (arr[--el2] == value && el2 > left) {
                 count += 1;
             }
             break;
-        } else if (arr[middle] > ch) {
-            right = middle;
+        } else if (arr[middle] > value) {
+            y = middle;
         } else {
-            left2 = middle+1;
+            x = middle+1;
         }
     }
     return count;
@@ -72,9 +72,8 @@ int cbinsearch(int* arr, int left1, int len, int ch) {
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
     //SortArr(arr, len);
-    int ch;
-    for (int ch = 0; ch < len; ch++) {
-        count += cbinsearch(arr, left1, len, ch);
+    for (int x = 0; x < len; x++) {
+        count += cbinsearch(arr, x, len, value - arr[x]);
     }
     return count;
 }

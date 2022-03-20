@@ -1,7 +1,7 @@
 // Copyright 2021 NNTU-CS
 #include <iostream>
 
-void SortArr(int arr[], int len) {
+void SortArr(int* arr, int len) {
     int i, j;
     int temp;
     for (i = 1; i < len; i++) {
@@ -31,9 +31,11 @@ int countPairs2(int* arr, int len, int value) {
     int count = 0;
     //SortArr(arr, N);
     for (int i = len-1; i >=0; --i) {
-        for (int j = len - 1; j > i; j--) {
-            if (arr[i] + arr[j] == value) {
-                count += 1;
+        if(arr[i] <= value) {
+            for (int j = len - 1; j > i; j--) {
+                if (arr[i] + arr[j] == value) {
+                    count += 1;
+                }
             }
         }
     }
@@ -46,6 +48,7 @@ int cbinsearch(int* arr, int left1, int len, int ch) {
     int middle = 0;
     int right = len;
     while (left2 < right-1) {
+        middle = (left2 + right) / 2;
         if (arr[middle] == ch) {
             count++;
             int el = middle + 1;

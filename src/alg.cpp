@@ -1,28 +1,24 @@
 // Copyright 2021 NNTU-CS
 #include <iostream>
 
-void swap(int *a, int *b) {
-    a = b;
-    b = a;
-}
-
-void SortArr(int arr[], int len) {
-    int i, j, index;
-    for (i = 0; i < len - 1; i++) {
-        index = i;
-        for (j = i + 1; j < len; j++) {
-            if (arr[j] < arr[index]) {
-                index = j;
-            }
+void SortArr(int arr[], int N) {
+    int i, j;
+    int temp;
+    for (i = 1; i < N; i++) {
+        j = i;
+        temp = arr[i];
+        while (j > 0 && temp < arr[j-1]){
+            arr[j] = arr[j-1];
+            j--;
         }
-        swap(&arr[i], & arr[index]);
+        arr[j] = temp;
     }
 }
 
 int countPairs1(int* arr, int len, int value) {
     int count = 0;
     bool flag = false;
-    //SortArr(arr[], len);
+    SortArr(arr, N);
     for (int i = 0; i < len-1; i++) {
         for (int j = 1; j < len; j++) {
             if (arr[i] + arr[j] == value) {
@@ -40,7 +36,7 @@ int countPairs1(int* arr, int len, int value) {
 
 int countPairs2(int* arr, int len, int value) {
     int count = 0;
-    //SortArr(arr[], len);
+    SortArr(arr, N);
     for (int i = len-1; i >=0; --i) {
         for (int j = len - 1; j > i; j--) {
             if (arr[i] + arr[j] == value) {
@@ -81,7 +77,7 @@ int cbinsearch(int* arr, int left1, int len, int ch) {
 
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
-    SortArr(arr, len);
+    SortArr(arr, N);
     int ch;
     for (int left1 = 0; left1 < len-1; ++left1) {
         ch = value - arr[left1];
